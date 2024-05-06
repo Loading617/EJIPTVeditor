@@ -1,2 +1,2 @@
 # EJ IPTV Editor
-A IPTV Editor for Windows
+EJIPTVEditor is (An Acronym for Enjoy IPTV Editor) for Windows

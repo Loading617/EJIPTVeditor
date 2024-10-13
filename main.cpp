@@ -1,8 +1,8 @@
-#include "IPTV Editor"
+#include "EJ IPTV Editor"
 
 int main() {
-    // Create an instance of the IPTVEditor class
-    IPTVEditor editor;
+    // Create an instance of the EJIPTVEditor class
+    EJIPTVEditor editor;
 
     // Open a new channel
     editor.openChannel("example.com/channel.m3u8");

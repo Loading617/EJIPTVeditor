@@ -3,9 +3,9 @@ from tkinter import filedialog
 
 class IPTVEditor:
  def init(self, root):
-self.root = root
-self.root.title('EJ IPTV Editor')
-self.playlist = []
+  self.root = root
+  self.root.title('EJ IPTV Editor')
+  self.playlist = []
 
     # Create GUI components
 self.file_label = tk.Label(self.root, text='Select IPTV Playlist:')

@@ -1,8 +1,6 @@
-import tkinter as tk
+import customtkinter as ctk
 
-root = tk.Tk()
-
-root.geometry("600x480")
+root = ctk.CTk()
 root.title("EJ IPTV Editor")
 
 root.mainloop()

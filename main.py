@@ -1,6 +1,6 @@
 import customtkinter as ctk
 
-customtkinter.set_appearance_mode("system")
+customtkinter.set_appearance_mode("System")
 customtkinter.set_default_color_theme("redorange")
 
 root = ctk.CTk()

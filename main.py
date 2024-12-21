@@ -19,7 +19,11 @@ dropdown1.add_option(option="Open URL")
 
 dropdown1.add_separator()
 
-sub_menu = dropdown1.add_submenu("Save As")
+dropdown1.add_option(option="Save As")
+
+dropdown1.add_separator()
+
+dropdown1.add_option(option="Exit", command=root.quit)
 
 dropdown2 = CustomDropdownMenu(widget=button_2)
 dropdown2.add_option(option="Import Kodi IPTV List")

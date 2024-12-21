@@ -12,7 +12,7 @@ file_menu.add_command(label="New List", command=lambda: print("New"))
 file_menu.add_command(label="Open List", command=lambda: print("Open"))
 file_menu.add_command(label="Open URL", command=lambda: print("Open"))
 file_menu.add_separator()
-file_menu.add_command(label="Exit", command=root.quit)
+file_menu.add_command(label="Exit", command=root.quit: print("Exit"))
 
 import_menu = menubar.add_cascade("Import")
 import_menu.add_command(label="Import Kodi IPTV List", command=lambda: print("Import"))
@@ -27,6 +27,12 @@ about_menu.add_command(label="About EJ IPTV Editor", command=lambda: print("Abou
 
 help_menu = menubar.add_cascade("Help")
 help_menu.add_command(label="How to", command=lambda: print("How to"))
+
+menubar.add_cascade(label="File", menu=file_menu)
+menubar.add_cascade(label="Import", menu=import_menu)
+menubar.add_cascade(label="Export", menu=export_menu)
+menubar.add_cascade(label="About", menu=about_menu)
+menubar.add_cascade(label="Help", menu=help_menu)
 
 root.geometry("920x570")
 

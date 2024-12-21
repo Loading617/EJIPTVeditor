@@ -12,7 +12,7 @@ file_menu.add_command(label="New List", command=lambda: print("New"))
 file_menu.add_command(label="Open List", command=lambda: print("Open"))
 file_menu.add_command(label="Open URL", command=lambda: print("Open"))
 file_menu.add_separator()
-file_menu.add_command(label="Exit", command=root.quit print("Exit"))
+file_menu.add_command(label="Exit", command=root.quit, print("Exit"))
 
 import_menu = menubar.add_cascade("Import")
 import_menu.add_command(label="Import Kodi IPTV List", command=lambda: print("Import"))

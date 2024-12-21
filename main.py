@@ -1,39 +1,41 @@
-import customtkinter as ctk
-from CTkMenuBar import CTkMenuBar
+import customtkinter
+from CTkMenuBar import *
 
-root = ctk.CTk()
-root.title("EJ IPTV Editor")
-
-menubar = CTkMenuBar(root)
-menubar.pack(side="top", fill="x")
-
-file_menu = ctk.CTkMenu(root)
-file_menu.add_command(label="New List", command=lambda: print("New"))
-file_menu.add_command(label="Open List", command=lambda: print("Open"))
-file_menu.add_command(label="Open URL", command=lambda: print("Open URL"))
-file_menu.add_separator()
-file_menu.add_command(label="Exit", command=lambda: (print("Exit"), root.quit()))
-
-menubar.add_cascade(label="File", menu=file_menu)
-
-import_menu = ctk.CTkMenu(root)
-import_menu.add_command(label="Import Kodi IPTV List", command=lambda: print("Import Kodi"))
-import_menu.add_command(label="Import Simple IPTV List", command=lambda: print("Import Simple"))
-menubar.add_cascade(label="Import", menu=import_menu)
-
-export_menu = ctk.CTkMenu(root)
-export_menu.add_command(label="Export Kodi IPTV List", command=lambda: print("Export Kodi"))
-export_menu.add_command(label="Export Simple IPTV List", command=lambda: print("Export Simple"))
-menubar.add_cascade(label="Export", menu=export_menu)
-
-about_menu = ctk.CTkMenu(root)
-about_menu.add_command(label="About EJ IPTV Editor", command=lambda: print("About"))
-menubar.add_cascade(label="About", menu=about_menu)
-
-help_menu = ctk.CTkMenu(root)
-help_menu.add_command(label="How to", command=lambda: print("How to"))
-menubar.add_cascade(label="Help", menu=help_menu)
-
+root = customtkinter.EJIPTVeditor()
 root.geometry("920x570")
+
+menu = CTkTitleMenu(root)
+button_1 = menu.add_cascade("File")
+button_2 = menu.add_cascade("Import")
+button_3 = menu.add_cascade("Export")
+button_4 = menu.add_cascade("Preferences")
+button_5 = menu.add_cascade("Help")
+button_6 = menu.add_cascade("About")
+
+dropdown1 = CustomDropdownMenu(widget=button_1)
+dropdown1.add_option(option="New List", command=lambda: print("New List"))
+dropdown1.add_option(option="Open List")
+dropdown1.add_option(option="Open URL")
+
+dropdown1.add_separator()
+
+sub_menu = dropdown1.add_submenu("Save As")
+
+dropdown2 = CustomDropdownMenu(widget=button_2)
+dropdown2.add_option(option="Import Kodi IPTV List")
+dropdown2.add_option(option="Import Simple IPTV List")
+
+dropdown3 = CustomDropdownMenu(widget=button_3)
+dropdown3.add_option(option="Export Kodi IPTV List")
+dropdown3.add_option(option="Export Simple IPTV List")
+
+dropdown4 = CustomDropdownMenu(widget=button_4)
+dropdown4.add_option(option="Report Duplicates")
+
+dropdown5 = CustomDropdownMenu(widget=button_5)
+dropdown5.add_option(option="Documentation(How To)")
+
+dropdown6 = CustomDropdownMenu(widget=button_6)
+dropdown6.add_option(option="Info")
 
 root.mainloop()

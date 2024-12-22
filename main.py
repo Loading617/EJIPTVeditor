@@ -1,8 +1,10 @@
 import customtkinter
 from CTkMenuBar import *
 
-root = customtkinter.EJIPTVeditor()
+root = customtkinter.CTk()
 root.geometry("920x570")
+
+root.title("EJ IPTV editor")
 
 menu = CTkTitleMenu(root)
 button_1 = menu.add_cascade("File")

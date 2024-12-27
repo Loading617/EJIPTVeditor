@@ -42,6 +42,9 @@ dropdown5 = CustomDropdownMenu(widget=button_5)
 dropdown5.add_option(option="Documentation(How To)")
 
 dropdown6 = CustomDropdownMenu(widget=button_6)
+dropdown6.add_option(option="Test IPTV Playlist")
+dropdown6.add_separator()
+dropdown6.add_option(option="Check EPG")
 dropdown6.add_option(option="Info")
 
 root.mainloop()

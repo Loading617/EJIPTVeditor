@@ -43,5 +43,41 @@ dropdown5.add_option(option="Documentation(How To)")
 
 dropdown6 = CustomDropdownMenu(widget=button_6)
 dropdown6.add_option(option="Info")
+
+def on_new_iptv_list():
+    print("New List created")
+    
+def open_file():
+    print("File opened")
+    
+def open_url():
+    print("URL opened")
+    
+def save_as():
+    print("Save As")
+    
+def add_new_channel():
+    print("Channel added")
+    
+def delete_channel():
+    print("Channel deleted")
+    
+def duplicate_channel():
+    print("Channel duplicated")
+    
+def copy_name_to_epg():
+    print("EPG copied to name")
+    
+def clear_duplicates_of_hosts():
+    print("Duplicates of hosts removed")
+    
+def check_links():
+    print("Links checked")
+    
+def delete_dead_links():
+    print("Dead links deleted")
+    
+def exports_to_hosts_validation():
+    print("Validations to hosts exported")
     
 root.mainloop()

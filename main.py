@@ -1,6 +1,7 @@
 import tkinter as tk
 import customtkinter
 from CTkMenuBar import *
+from PIL import Image, ImageTk
 
 root = customtkinter.CTk()
 root.geometry("920x570")
@@ -83,5 +84,14 @@ def exports_to_hosts_validation():
     
 toolbar = tk.frame(app, bg="#333333", height=30)
 toolbar.pack(side=tk.TOP, fill=tk.x)
+
+new_button = ctk.CTkButton(toolbar, text="New", width=70, command=on_new)
+new_button.pack(side=tk.LEFT, padx=2, pady=2)
+
+open_button = ctk.CTkButton(toolbar, text="Open", width=70, command=on_open)
+open_button.pack(side=tk.LEFT, padx=2, pady=2)
+
+save_button = ctk.CTkButton(toolbar, text="Save", width=70, command=on_save)
+save_button.pack(side=tk.LEFT, padx=2, pady=2)
 
 root.mainloop()

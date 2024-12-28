@@ -81,4 +81,7 @@ def delete_dead_links():
 def exports_to_hosts_validation():
     print("Validations to hosts exported")
     
+toolbar = tk.frame(app, bg="#333333", height=30)
+toolbar.pack(side=tk.TOP, fill=tk.x)
+
 root.mainloop()

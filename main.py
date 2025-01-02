@@ -94,8 +94,16 @@ open_button.pack(side=tk.LEFT, padx=2, pady=2)
 save_button = ctk.CTkButton(toolbar, text="Save", width=70, command=on_save)
 save_button.pack(side=tk.LEFT, padx=2, pady=2)
 
+new_icon = ImageTk.PhotoImage(Image.open("newlist.png").resize((20, 20)))
+new_button = ctk.CTkButton(toolbar, image=newlist, text="", width=30, command=on_new)
+new_button.pack(side=tk.LEFT, padx=2, pady=2)
+
 new_icon = ImageTk.PhotoImage(Image.open("open-file.png").resize((20, 20)))
 new_button = ctk.CTkButton(toolbar, image=open-file, text="", width=30, command=on_new)
+new_button.pack(side=tk.LEFT, padx=2, pady=2)
+
+new_icon = ImageTk.PhotoImage(Image.open("saveas.png").resize((20, 20)))
+new_button = ctk.CTkButton(toolbar, image=saveas, text="", width=30, command=on_new)
 new_button.pack(side=tk.LEFT, padx=2, pady=2)
 
 root.mainloop()

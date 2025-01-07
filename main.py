@@ -112,6 +112,16 @@ copynametoepg_button.pack(side=tk.LEFT, padx=2, pady=2)
 clearduplicatesofhosts_button = ctk.CTkButton(toolbar, text="Clear Duplicates of Hosts", width=70, command=on_clear_duplicates_of_hosts)
 clearduplicatesofhosts_button.pack(side=tk.LEFT, padx=2, pady=2)
 
+checklinks_button = ctk.CTkButton(toolbar, text="Check Links", width=70, command=on_checklinks)
+checklinks_button.pack(side=tk.LEFT, padx=2, pady=2)
+
+deletedeadlinks_button = ctk.CTkButton(toolbar, text="Delete Dead Links", width=70, command=on_deletedeadlinks)
+deletedeadlinks_button.pack(side=tk.LEFT, padx=2, pady=2)
+
+exporttohostsvalidation_button = ctk.CTkButton(toolbar, text="Exports to Hosts Validation", width=70, command=on_exports_to_hosts_validation)
+exporttohostsvalidation_button = ctk.CTkButton(side=tk.LEFT, padx=2, pady=2)
+
+
 new_icon = ImageTk.PhotoImage(Image.open("newlist.png").resize((20, 20)))
 new_button = ctk.CTkButton(toolbar, image=newlist, text="", width=30, command=on_newlist)
 new_button.pack(side=tk.LEFT, padx=2, pady=2)
@@ -150,6 +160,14 @@ new_button.pack(side=tk.LEFT, padx=2, pady=2)
 
 new_icon = ImageTk.PhotoImage(Image.open("checklinks.png").resize((20, 20)))
 new_button = ctk.CTkButton(toolbar, image=checklinks, text="", width=30, command=on_checklinks)
+new_button.pack(side=tk.LEFT, padx=2, pady=2)
+
+new_icon = ImageTk.PhotoImage(Image.open("deletedeadlinks.png").resize((20, 20)))
+new_button = ctk.CTkButton(toolbar, image=deletedeadlinks, text="", width=30, command=on_deletedeadlinks)
+new_button.pack(side=tk.LEFT, padx=2, pady=2)
+
+new_icon = ImageTk.PhotoImage(Image.open("exporthostsvalidation.png").resize((20, 20)))
+new_button = ctk.CTkButton(toolbar, image=, text="", width=30, command=on_exporthosts_validation)
 new_button.pack(side=tk.LEFT, padx=2, pady=2)
 
 root.mainloop()

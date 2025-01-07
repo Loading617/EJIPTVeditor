@@ -85,14 +85,32 @@ def exports_to_hosts_validation():
 toolbar = tk.frame(app, bg="#333333", height=30)
 toolbar.pack(side=tk.TOP, fill=tk.x)
 
-new_button = ctk.CTkButton(toolbar, text="New", width=70, command=on_new)
-new_button.pack(side=tk.LEFT, padx=2, pady=2)
+newiptvlist_button = ctk.CTkButton(toolbar, text="New IPTV List", width=70, command=on_newiptvlist)
+newiptvlist_button.pack(side=tk.LEFT, padx=2, pady=2)
 
-open_button = ctk.CTkButton(toolbar, text="Open", width=70, command=on_open)
-open_button.pack(side=tk.LEFT, padx=2, pady=2)
+openfile_button = ctk.CTkButton(toolbar, text="Open File", width=70, command=on_open_file)
+openfile_button.pack(side=tk.LEFT, padx=2, pady=2)
+
+openurl_button = ctk.CTkButton(toolbar, text="Open Url", width=70, command=on_open_url)
+openurl_button.pack(side=tk.LEFT, padx=2, pady=2)
 
 save_button = ctk.CTkButton(toolbar, text="Save", width=70, command=on_save)
 save_button.pack(side=tk.LEFT, padx=2, pady=2)
+
+addchannel_button = ctk.CTkButton(toolbar, text="Add Channel", width=70, command=on_add_channel)
+addchannel_button.pack(side=tk.LEFT, padx=2, pady=2)
+
+deletechannel_button = ctk.CTkButton(toolbar, text="Delete Channel", width=70, command=on_delete_channel)
+deletechannel_button.pack(side=tk.LEFT, padx=2, pady=2)
+
+duplicatechannel_button = ctk.CTkButton(toolbar, text="Duplicate Channel", width=70, command=on_duplicate_channel)
+duplicatechannel_button.pack(side=tk.LEFT, padx=2, pady=2)
+
+copynametoepg_button = ctk.CTkButton(toolbar, text="Copy Name to EPG", width=70, command=on_copy_name_to_epg)
+copynametoepg_button.pack(side=tk.LEFT, padx=2, pady=2)
+
+clearduplicatesofhosts_button = ctk.CTkButton(toolbar, text="Clear Duplicates of Hosts", width=70, command=on_clear_duplicates_of_hosts)
+clearduplicatesofhosts_button.pack(side=tk.LEFT, padx=2, pady=2)
 
 new_icon = ImageTk.PhotoImage(Image.open("newlist.png").resize((20, 20)))
 new_button = ctk.CTkButton(toolbar, image=newlist, text="", width=30, command=on_new)

@@ -167,7 +167,7 @@ new_button = ctk.CTkButton(toolbar, image=deletedeadlinks, text="", width=30, co
 new_button.pack(side=tk.LEFT, padx=2, pady=2)
 
 new_icon = ImageTk.PhotoImage(Image.open("exporthostsvalidation.png").resize((20, 20)))
-new_button = ctk.CTkButton(toolbar, image=, text="", width=30, command=on_exporthosts_validation)
+new_button = ctk.CTkButton(toolbar, image=, text="exporthostsvalidation", width=30, command=on_exporthosts_validation)
 new_button.pack(side=tk.LEFT, padx=2, pady=2)
 
 root.mainloop()

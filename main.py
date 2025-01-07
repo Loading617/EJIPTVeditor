@@ -102,8 +102,32 @@ new_icon = ImageTk.PhotoImage(Image.open("open-file.png").resize((20, 20)))
 new_button = ctk.CTkButton(toolbar, image=open-file, text="", width=30, command=on_new)
 new_button.pack(side=tk.LEFT, padx=2, pady=2)
 
-new_icon = ImageTk.PhotoImage(Image.open("saveas.png").resize((20, 20)))
-new_button = ctk.CTkButton(toolbar, image=saveas, text="", width=30, command=on_new)
+new_icon = ImageTk.PhotoImage(Image.open("openurl.png").resize((20, 20)))
+new_button = ctk.CTkButton(toolbar, image=openurl, text="", width=30, command=on_new)
+new_button.pack(side=tk.LEFT, padx=2, pady=2)
+
+new_icon = ImageTk.PhotoImage(Image.open("save.png").resize((20, 20)))
+new_button = ctk.CTkButton(toolbar, image=save, text="", width=30, command=on_new)
+new_button.pack(side=tk.LEFT, padx=2, pady=2)
+
+new_icon = ImageTk.PhotoImage(Image.open("channeladd.png").resize((20, 20)))
+new_button = ctk.CTkButton(toolbar, image=channeladd, text="", width=30, command=on_new)
+new_button.pack(side=tk.LEFT, padx=2, pady=2)
+
+new_icon = ImageTk.PhotoImage(Image.open("deletechannel.jpg").resize((20, 20)))
+new_button = ctk.CTkButton(toolbar, image=deletechannel, text="", width=30, command=on_new)
+new_button.pack(side=tk.LEFT, padx=2, pady=2)
+
+new_icon = ImageTk.PhotoImage(Image.open("duplicatechannel.png").resize((20, 20)))
+new_button = ctk.CTkButton(toolbar, image=duplicatechannel, text="", width=30, command=on_new)
+new_button.pack(side=tk.LEFT, padx=2, pady=2)
+
+new_icon = ImageTk.PhotoImage(Image.open("copynametoepg.png").resize((20, 20)))
+new_button = ctk.CTkButton(toolbar, image=copynametoepg, text="", width=30, command=on_new)
+new_button.pack(side=tk.LEFT, padx=2, pady=2)
+
+new_icon = ImageTk.PhotoImage(Image.open(".png").resize((20, 20)))
+new_button = ctk.CTkButton(toolbar, image=, text="", width=30, command=on_new)
 new_button.pack(side=tk.LEFT, padx=2, pady=2)
 
 root.mainloop()

@@ -126,8 +126,8 @@ new_icon = ImageTk.PhotoImage(Image.open("copynametoepg.png").resize((20, 20)))
 new_button = ctk.CTkButton(toolbar, image=copynametoepg, text="", width=30, command=on_new)
 new_button.pack(side=tk.LEFT, padx=2, pady=2)
 
-new_icon = ImageTk.PhotoImage(Image.open(".png").resize((20, 20)))
-new_button = ctk.CTkButton(toolbar, image=, text="", width=30, command=on_new)
+new_icon = ImageTk.PhotoImage(Image.open("clearduplicatehosts.png").resize((20, 20)))
+new_button = ctk.CTkButton(toolbar, image=clearduplicatehosts, text="", width=30, command=on_new)
 new_button.pack(side=tk.LEFT, padx=2, pady=2)
 
 root.mainloop()

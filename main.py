@@ -113,39 +113,43 @@ clearduplicatesofhosts_button = ctk.CTkButton(toolbar, text="Clear Duplicates of
 clearduplicatesofhosts_button.pack(side=tk.LEFT, padx=2, pady=2)
 
 new_icon = ImageTk.PhotoImage(Image.open("newlist.png").resize((20, 20)))
-new_button = ctk.CTkButton(toolbar, image=newlist, text="", width=30, command=on_new)
+new_button = ctk.CTkButton(toolbar, image=newlist, text="", width=30, command=on_newlist)
 new_button.pack(side=tk.LEFT, padx=2, pady=2)
 
 new_icon = ImageTk.PhotoImage(Image.open("open-file.png").resize((20, 20)))
-new_button = ctk.CTkButton(toolbar, image=open-file, text="", width=30, command=on_new)
+new_button = ctk.CTkButton(toolbar, image=open-file, text="", width=30, command=on_open_file)
 new_button.pack(side=tk.LEFT, padx=2, pady=2)
 
 new_icon = ImageTk.PhotoImage(Image.open("openurl.png").resize((20, 20)))
-new_button = ctk.CTkButton(toolbar, image=openurl, text="", width=30, command=on_new)
+new_button = ctk.CTkButton(toolbar, image=openurl, text="", width=30, command=on_openurl)
 new_button.pack(side=tk.LEFT, padx=2, pady=2)
 
 new_icon = ImageTk.PhotoImage(Image.open("save.png").resize((20, 20)))
-new_button = ctk.CTkButton(toolbar, image=save, text="", width=30, command=on_new)
+new_button = ctk.CTkButton(toolbar, image=save, text="", width=30, command=on_save)
 new_button.pack(side=tk.LEFT, padx=2, pady=2)
 
 new_icon = ImageTk.PhotoImage(Image.open("channeladd.png").resize((20, 20)))
-new_button = ctk.CTkButton(toolbar, image=channeladd, text="", width=30, command=on_new)
+new_button = ctk.CTkButton(toolbar, image=channeladd, text="", width=30, command=on_add_channel)
 new_button.pack(side=tk.LEFT, padx=2, pady=2)
 
-new_icon = ImageTk.PhotoImage(Image.open("deletechannel.jpg").resize((20, 20)))
-new_button = ctk.CTkButton(toolbar, image=deletechannel, text="", width=30, command=on_new)
+new_icon = ImageTk.PhotoImage(Image.open("deletechannel.png").resize((20, 20)))
+new_button = ctk.CTkButton(toolbar, image=deletechannel, text="", width=30, command=on_deletechannel)
 new_button.pack(side=tk.LEFT, padx=2, pady=2)
 
 new_icon = ImageTk.PhotoImage(Image.open("duplicatechannel.png").resize((20, 20)))
-new_button = ctk.CTkButton(toolbar, image=duplicatechannel, text="", width=30, command=on_new)
+new_button = ctk.CTkButton(toolbar, image=duplicatechannel, text="", width=30, command=on_duplicatechannel)
 new_button.pack(side=tk.LEFT, padx=2, pady=2)
 
 new_icon = ImageTk.PhotoImage(Image.open("copynametoepg.png").resize((20, 20)))
-new_button = ctk.CTkButton(toolbar, image=copynametoepg, text="", width=30, command=on_new)
+new_button = ctk.CTkButton(toolbar, image=copynametoepg, text="", width=30, command=on_copynametoepg)
 new_button.pack(side=tk.LEFT, padx=2, pady=2)
 
 new_icon = ImageTk.PhotoImage(Image.open("clearduplicatehosts.png").resize((20, 20)))
-new_button = ctk.CTkButton(toolbar, image=clearduplicatehosts, text="", width=30, command=on_new)
+new_button = ctk.CTkButton(toolbar, image=clearduplicatehosts, text="", width=30, command=on_clearduplicatehosts)
+new_button.pack(side=tk.LEFT, padx=2, pady=2)
+
+new_icon = ImageTk.PhotoImage(Image.open("checklinks.png").resize((20, 20)))
+new_button = ctk.CTkButton(toolbar, image=checklinks, text="", width=30, command=on_checklinks)
 new_button.pack(side=tk.LEFT, padx=2, pady=2)
 
 root.mainloop()

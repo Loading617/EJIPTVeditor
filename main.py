@@ -41,7 +41,7 @@ dropdown5.add_option(option="Documentation(How To)")
 dropdown6 = CustomDropdownMenu(widget=button_6)
 dropdown6.add_option(option="Info")
 
-frame = customtkinter.CTkFrame(root, width=920, height=570, corner_radius=0)
+frame = customtkinter.CTkFrame(root, width=920, height=930, corner_radius=0)
 frame.place(x=620, y=35)
 
 root.mainloop()

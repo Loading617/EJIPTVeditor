@@ -41,7 +41,19 @@ dropdown5.add_option(option="Documentation(How To)")
 dropdown6 = CustomDropdownMenu(widget=button_6)
 dropdown6.add_option(option="Info")
 
-frame = customtkinter.CTkFrame(root, width=920, height=930, corner_radius=0)
-frame.place(x=620, y=35)
+frame_width = 280
+frame_height = 500
+
+frame = customtkinter.CTkFrame(root, width=frame_width, height=frame_height, corner_radius=0)
+frame.place(x=950 - frame_width, y=51)
+
+fields = ["Name", "Number of Channel", "Category", "URL Stream", "Logo", "EPG ID"]
+
+for field in fields:
+    label = customtkinter.CTkLabel(frame, text=f"{field}:", font=("Akzidenz Grotesk", 16))
+    label.pack(pady=10, anchor="w")
+
+    entry = customtkinter.CTkEntry(frame, width=250)
+    entry.pack(pady=5)
 
 root.mainloop()

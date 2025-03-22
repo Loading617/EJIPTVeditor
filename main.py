@@ -5,7 +5,6 @@ from PIL import Image, ImageTk
 
 root = customtkinter.CTk()
 root.geometry("920x570")
-
 root.title("EJ IPTV editor")
 
 menu = CTkTitleMenu(root)
@@ -20,13 +19,9 @@ dropdown1 = CustomDropdownMenu(widget=button_1)
 dropdown1.add_option(option="New List", command=lambda: print("New List"))
 dropdown1.add_option(option="Open List")
 dropdown1.add_option(option="Open URL")
-
 dropdown1.add_separator()
-
 dropdown1.add_option(option="Save As")
-
 dropdown1.add_separator()
-
 dropdown1.add_option(option="Exit", command=root.quit)
 
 dropdown2 = CustomDropdownMenu(widget=button_2)
@@ -45,5 +40,8 @@ dropdown5.add_option(option="Documentation(How To)")
 
 dropdown6 = CustomDropdownMenu(widget=button_6)
 dropdown6.add_option(option="Info")
+
+frame = customtkinter.CTkFrame(root, width=300, height=500, corner_radius=10)
+frame.place(x=620, y=35)
 
 root.mainloop()

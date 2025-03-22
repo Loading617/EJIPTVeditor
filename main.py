@@ -50,7 +50,7 @@ frame.place(x=950 - frame_width, y=51)
 fields = ["Name", "Number of Channel", "Category", "URL Stream", "Logo", "EPG ID"]
 
 for field in fields:
-    label = customtkinter.CTkLabel(frame, text=f"{field}:", font=("Akzidenz Grotesk", 16))
+    label = customtkinter.CTkLabel(frame, text=f"{field}:", font=("Akzidenz Grotesk", 14))
     label.pack(pady=10, anchor="w")
 
     entry = customtkinter.CTkEntry(frame, width=250)

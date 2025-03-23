@@ -44,4 +44,40 @@ dropdown6.add_option(option="Info")
 frame = customtkinter.CTkFrame(root, width=920, height=570, corner_radius=0)
 frame.place(x=620, y=35)
 
+label1 = customtkinter.CTkLabel(frame, text="Name:")
+label1.place(x=10, y=10)
+
+entry1 = customtkinter.CTkEntry(frame, width=200)
+entry1.place(x=120, y=10)
+
+label2 = customtkinter.CTkLabel(frame, text="Number of Channel:")
+label2.place(x=10, y=10)
+
+entry2 = customtkinter.CTkEntry(frame, width=200)
+entry2.place(x=120, y=10)
+
+label3 = customtkinter.CTkLabel(frame, text="Category:")
+label3.place(x=10, y=10)
+
+entry3 = customtkinter.CTkEntry(frame, width=200)
+entry3.place(x=120, y=10)
+
+label4 = customtkinter.CTkLabel(frame, text="URL Stream:")
+label4.place(x=10, y=10)
+
+entry4 = customtkinter.CTkEntry(frame, width=200)
+entry4.place(x=120, y=10)
+
+label5 = customtkinter.CTkLabel(frame, text="Logo:")
+label5.place(x=10, y=10)
+
+entry5 = customtkinter.CTkEntry(frame, width=200)
+entry5.place(x=120, y=10)
+
+label6 = customtkinter.CTKLabel(frame, text="EPG ID:")
+label6.place(x=10, y=10)
+
+entry6 = customtkinter.CTkEntry(frame, width=200)
+entry6.place(x=120, y=10)
+
 root.mainloop()

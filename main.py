@@ -17,10 +17,10 @@ button_6 = menu.add_cascade("About")
 
 dropdown1 = CustomDropdownMenu(widget=button_1)
 dropdown1.add_option(option="New List", command=lambda: print("New List"))
-dropdown1.add_option(option="Open List")
-dropdown1.add_option(option="Open URL")
+dropdown1.add_option(option="Open List", command=lambda: print("Open List"))
+dropdown1.add_option(option="Open URL", command=lambda: print("Open URL"))
 dropdown1.add_separator()
-dropdown1.add_option(option="Save As")
+dropdown1.add_option(option="Save As", command=lambda: print("Save As"))
 dropdown1.add_separator()
 dropdown1.add_option(option="Exit", command=root.quit)
 

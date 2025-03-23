@@ -1,4 +1,4 @@
-import tkinter as tk 
+import tkinter as tk  
 import customtkinter
 from CTkMenuBar import *
 from PIL import Image, ImageTk
@@ -50,23 +50,28 @@ entry1 = customtkinter.CTkEntry(frame, width=200)
 entry1.place(x=10, y=35)
 
 label2 = customtkinter.CTkLabel(frame, text="Number of Channel:")
-label2.place(x=10, y=70)
+label2.place(x=10, y=75)
 entry2 = customtkinter.CTkEntry(frame, width=200)
-entry2.place(x=10, y=95)
+entry2.place(x=10, y=100)
 
 label3 = customtkinter.CTkLabel(frame, text="Category:")
-label3.place(x=10, y=130)
+label3.place(x=10, y=140)
 entry3 = customtkinter.CTkEntry(frame, width=200)
-entry3.place(x=10, y=155)
+entry3.place(x=10, y=165)
 
 label4 = customtkinter.CTkLabel(frame, text="URL Stream:")
-label4.place(x=10, y=190)
+label4.place(x=10, y=205)
 entry4 = customtkinter.CTkEntry(frame, width=200)
-entry4.place(x=10, y=215)
+entry4.place(x=10, y=230)
 
 label5 = customtkinter.CTkLabel(frame, text="Logo:")
-label5.place(x=10, y=250)
+label5.place(x=10, y=270)
 entry5 = customtkinter.CTkEntry(frame, width=200)
-entry5.place(x=10, y=275)
+entry5.place(x=10, y=295)
+
+label6 = customtkinter.CTkLabel(frame, text="EPG ID:")
+label6.place(x=10, y=335)
+entry6 = customtkinter.CTkEntry(frame, width=200)
+entry6.place(x=10, y=360)
 
 root.mainloop()

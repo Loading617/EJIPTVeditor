@@ -46,8 +46,10 @@ dropdown4.add_option(option="Report Duplicates")
 dropdown5 = CustomDropdownMenu(widget=button_5)
 dropdown5.add_option(option="Documentation(How To)")
 
+about_img = PhotoImage(file="icons/info.png")
+
 dropdown6 = CustomDropdownMenu(widget=button_6)
-dropdown6.add_option(option="Info")
+dropdown6.add_option(option="Info", command=lambda: print("Info"), image=about_img, compound="left")
 
 frame = customtkinter.CTkFrame(root, width=920, height=570, corner_radius=0)
 frame.place(x=620, y=35)

@@ -49,20 +49,6 @@ dropdown5.add_option(option="Documentation(How To)")
 dropdown6 = CustomDropdownMenu(widget=button_6)
 dropdown6.add_option(option="Info")
 
-self.img1 = ctk.CTkImage(Image.open("icons/newiptvlist.png"), size=(20, 20))
-self.img2 = ctk.CTkImage(Image.open("icons/openfile.png"), size=(20, 20))
-self.img3 = ctk.CTkImage(Image.open("icons/openurl.png"), size=(20, 20))
-self.img4 = ctk.CTKImage(Image.open("icons/save.png"), size=(20, 20))
-self.img5 = ctk.CTKImage(Image.open("icons/exit.png"), size=(20, 20))
-
-self.options = [
-            ("New IPTV List", self.img1),
-            ("Open File", self.img2),
-            ("Open URL", self.img3),
-            ("Save", self.img4),
-            ("Exit", self.img5)
-        ]
-
 frame = customtkinter.CTkFrame(root, width=920, height=570, corner_radius=0)
 frame.place(x=620, y=35)
 

@@ -17,15 +17,11 @@ button_4 = menu.add_cascade("Preferences")
 button_5 = menu.add_cascade("Help")
 button_6 = menu.add_cascade("About")
 
-def load_icon(path, size=(20, 20)):
-    img = Image.open(path).resize(size, Image.LANCZOS)
-    return ImageTk.PhotoImage(img)
-
-new_img = PhotoImage(file="icons/newiptvlist.png")
-open_img = PhotoImage(file="icons/openfile.png")
-url_img = PhotoImage(file="icons/openurl.png")
-save_img = PhotoImage(file="icons/save.png")
-exit_img = PhotoImage(file="icons/exit.png")
+new_img = PhotoImage(file="icons/newiptvlist.png").subsample(2, 2)
+open_img = PhotoImage(file="icons/openfile.png").subsample(2, 2)
+url_img = PhotoImage(file="icons/openurl.png").subsample(2, 2)
+save_img = PhotoImage(file="icons/save.png").subsample(2, 2)
+exit_img = PhotoImage(file="icons/exit.png").subsample(2, 2)
 
 dropdown1 = CustomDropdownMenu(widget=button_1)
 dropdown1.add_option(option="New List", command=lambda: print("New List"), image=new_img, compound="left")
@@ -50,7 +46,7 @@ dropdown4.add_option(option="Report Duplicates")
 dropdown5 = CustomDropdownMenu(widget=button_5)
 dropdown5.add_option(option="Documentation(How To)")
 
-about_img = PhotoImage(file="icons/info.png")
+about_img = PhotoImage(file="icons/info.png").subsample(2, 2)
 
 dropdown6 = CustomDropdownMenu(widget=button_6)
 dropdown6.add_option(option="Info", command=lambda: print("Info"), image=about_img, compound="left")

@@ -17,6 +17,10 @@ button_4 = menu.add_cascade("Preferences")
 button_5 = menu.add_cascade("Help")
 button_6 = menu.add_cascade("About")
 
+def load_icon(path, size=(20, 20)):
+    img = Image.open(path).resize(size, Image.LANCZOS)
+    return ImageTk.PhotoImage(img)
+
 new_img = PhotoImage(file="icons/newiptvlist.png")
 open_img = PhotoImage(file="icons/openfile.png")
 url_img = PhotoImage(file="icons/openurl.png")

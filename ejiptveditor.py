@@ -1,11 +1,11 @@
-import tkinter as tk  
-import customtkinter
+import tkinter as tk
+import customtkinter as CTk
 from CTkMenuBar import *
 from tkinter import PhotoImage
 from tkinter import filedialog, simpledialog
 from PIL import Image, ImageTk
 
-root = customtkinter.CTk()
+root = CTk.CTk()
 root.geometry("920x570")
 root.title("EJ IPTV editor")
 
@@ -51,41 +51,41 @@ about_img = PhotoImage(file="icons/info.png").subsample(5, 5)
 dropdown6 = CustomDropdownMenu(widget=button_6)
 dropdown6.add_option(option="Info", command=lambda: print("Info"), image=about_img, compound="left")
 
-frame = customtkinter.CTkFrame(root, width=920, height=570, corner_radius=0)
+frame = CTk.CTkFrame(root, width=920, height=570, corner_radius=0)
 frame.grid(x=620, y=35)
 
-label1 = customtkinter.CTkLabel(frame, text="Name:")
+label1 = CTk.CTkLabel(frame, text="Name:")
 label1.grid(x=10, y=10)
-entry1 = customtkinter.CTkEntry(frame, width=280)
+entry1 = CTk.CTkEntry(frame, width=280)
 entry1.grid(x=10, y=35)
 
-label2 = customtkinter.CTkLabel(frame, text="Number of Channel:")
+label2 = CTk.CTkLabel(frame, text="Number of Channel:")
 label2.grid(x=10, y=75)
-entry2 = customtkinter.CTkEntry(frame, width=280)
+entry2 = CTk.CTkEntry(frame, width=280)
 entry2.grid(x=10, y=100)
 
-label3 = customtkinter.CTkLabel(frame, text="Category:")
+label3 = CTk.CTkLabel(frame, text="Category:")
 label3.grid(x=10, y=140)
-entry3 = customtkinter.CTkEntry(frame, width=280)
+entry3 = CTk.CTkEntry(frame, width=280)
 entry3.grid(x=10, y=165)
 
-label4 = customtkinter.CTkLabel(frame, text="URL Stream:")
+label4 = CTk.CTkLabel(frame, text="URL Stream:")
 label4.grid(x=10, y=205)
-entry4 = customtkinter.CTkEntry(frame, width=280)
+entry4 = CTk.CTkEntry(frame, width=280)
 entry4.grid(x=10, y=230)
 
-label5 = customtkinter.CTkLabel(frame, text="Logo:")
+label5 = CTk.CTkLabel(frame, text="Logo:")
 label5.grid(x=10, y=270)
-entry5 = customtkinter.CTkEntry(frame, width=280)
+entry5 = CTk.CTkEntry(frame, width=280)
 entry5.grid(x=10, y=295)
 
-label6 = customtkinter.CTkLabel(frame, text="EPG ID:")
+label6 = CTk.CTkLabel(frame, text="EPG ID:")
 label6.grid(x=10, y=335)
-entry6 = customtkinter.CTkEntry(frame, width=280)
+entry6 = CTk.CTkEntry(frame, width=280)
 entry6.grid(x=10, y=360)
 
 def create_toolbar(self):
-        toolbar = ctk.CTkFrame(self)
+        toolbar = CTk.CTkFrame(self)
         toolbar.pack(pady=10, padx=10, fill="x")
 
         buttons = [
@@ -104,7 +104,7 @@ def create_toolbar(self):
         ]
 
         for text, command, _ in buttons:
-            btn = ctk.CTkButton(toolbar, text=text, command=command)
+            btn = CTk.CTkButton(toolbar, text=text, command=command)
             btn.pack(side="left", padx=5)
 
 def bind_keys(self):

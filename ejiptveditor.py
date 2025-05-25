@@ -2,6 +2,7 @@ import tkinter as tk
 import customtkinter as CTk
 from CTkMenuBar import *
 from tkinter import PhotoImage
+from pywindowstyles import Window
 from tkinter import filedialog, simpledialog
 from PIL import Image, ImageTk
 

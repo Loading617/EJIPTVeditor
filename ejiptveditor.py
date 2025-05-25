@@ -7,6 +7,7 @@ from tkinter import filedialog, simpledialog
 from PIL import Image, ImageTk
 
 root = CTk.CTk()
+pywindowstyles.apply_window_style(root, "acrylic")
 root.geometry("920x570")
 root.title("EJ IPTV editor")
 

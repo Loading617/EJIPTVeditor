@@ -2,12 +2,12 @@ import tkinter as tk
 import customtkinter as CTk
 from CTkMenuBar import *
 from tkinter import PhotoImage
-from pywindowstyles import Window
+from pywinstyles
 from tkinter import filedialog, simpledialog
 from PIL import Image, ImageTk
 
 root = CTk.CTk()
-pywindowstyles.apply_window_style(root, "acrylic")
+pywinstyles.apply_style(root, "acrylic")
 root.geometry("920x570")
 root.title("EJ IPTV editor")
 

@@ -64,6 +64,83 @@ toolbar_frame.grid(row=0, column=0, sticky="ew", padx=0, pady=0)
 toolbar_frame.grid_columnconfigure((0, 1, 2, 3), weight=0)
 toolbar_frame.grid_columnconfigure(4, weight=1)
 
+image_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "icons")
+new_iptv_list_image, open_file_image, open_url_image, save_image, add_channel_image, delete_channel_image, duplicate_channel_image, copy_name_to_epg_image, clear_duplicates_image, verify_links_image, delete_dead_links_image, export_hosts_image = None, None, None, None, None, None, None, None, None, None, None, None
+
+try:
+                new_iptv_list_image = PhotoImage(file=os.path.join(image_path, "newiptvlist.png"))
+                open_file_image = PhotoImage(file=os.path.join(image_path, "openfile.png"))
+                open_url_image = PhotoImage(file=os.path.join(image_path, "openurl.png"))
+                save_image = PhotoImage(file=os.path.join(image_path, "save.png"))
+                add_channel_image = PhotoImage(file=os.path.join(image_path, "addchannel.png"))
+                delete_channel_image = PhotoImage(file=os.path.join(image_path, "deletechannel.png"))
+                duplicate_channel_image = PhotoImage(file=os.path.join(image_path, "duplicatechannel.png"))
+                copy_name_to_epg_image = PhotoImage(file=os.path.join(image_path, "copynametoepg.png"))
+                clear_duplicates_image = PhotoImage(file=os.path.join(image_path, "clearduplicates.png"))
+                verify_links_image = PhotoImage(file=os.path.join(image_path, "verifylinks.png"))
+                delete_dead_links_image = PhotoImage(file=os.path.join(image_path, "deletedeadlinks.png"))
+                export_hosts_image = PhotoImage(file=os.path.join(image_path, "exporthosts.png"))
+
+new_iptv_list_button = ctk.CTkButton(toolbar_frame, image=new_iptv_list_image,
+                                     compound="left", command=lambda: new_iptv_list(new_iptv_list),
+                                     width=80, height=30, corner_radius=5)
+new_iptv_list_button.grid(row=0, column=0, padx=(10, 5), pady=5, sticky="w")
+
+open_file_button = ctk.CTkButton(toolbar_frame, image=open_file_image,
+                                 compound="left", command=lambda: open_file(open_file),
+                                 width=80, height=30, corner_radius=5)
+open_file_button.grid(row=0, column=1, padx=5, pady=5 sticky="w")
+
+open_url_button = ctk.CTkButton(toolbar_frame, image=open_url_image,
+                                compound="left", command=lambda: open_url(open_url),
+                                width=80, height=30, corner_radius=5)
+open_url_button.grid(row=0, column=2, padx=5, pady=5 sticky="w")
+
+save_button = ctk.CTkButton(toolbar_frame, image=save_img,
+                            compound="left", command=lambda: save_file(save_file),
+                            width=80, height=30, corner_radius=5)
+save_button.grid(row=0, column=3, padx=5, pady=5 sticky="w")
+
+add_channel_button = ctk.CTkButton(toolbar_frame, image=add_channel_image,
+                                   compound="left", command=lambda: add_channel(add_channel),
+                                   width=80, height=30, corner_radius=5)
+add_channel_button.grid(row=0, column=4, padx=5, pady=5 sticky="w")
+
+delete_channel_button = ctk.CTkButton(toolbar_frame, image=delete_channel_image,
+                                      compound="left", command=lambda: delete_channel(delete_channel),
+                                      width=80, height=30, corner_radius=5)
+delete_channel_button.grid(row=0, column=5, padx=5, pady=5 sticky="w")
+
+duplicate_channel_button = ctk.CTkButton(toolbar_frame, image=duplicate_channel_image,
+                                         compound="left", command=lambda: duplicate_channel(duplicate_channel),
+                                         width=80, height=30, corner_radius=5)
+duplicate_channel_button.grid(row=0, column=6, padx=5, pady=5 sticky="w")
+
+copy_name_to_epg_button = ctk.CTkButton(toolbar_frame, image=copy_name_to_epg_image,
+                                         compound="left", command=lambda: copy_name_to_epg(copy_name_to_epg),
+                                         width=80, height=30, corner_radius=5)
+copy_name_to_epg_button.grid(row=0, column=7, padx=5, pady=5 sticky="w")
+
+clear_duplicates_button = ctk.CTkButton(toolbar_frame, image=clear_duplicates_image,
+                                         compound="left", command=lambda: clear_duplicates(clear_duplicates),
+                                         width=80, height=30, corner_radius=5)
+clear_duplicates_button.grid(row=0, column=8, padx=5, pady=5 sticky="w")
+
+verify_links_button = ctk.CTkButton(toolbar_frame, image=verify_links_image,
+                                         compound="left", command=lambda: verify_links(verify_links),
+                                         width=80, height=30, corner_radius=5)
+verify_links_button.grid(row=0, column=9, padx=5, pady=5 sticky="w")
+
+delete_dead_links_button = ctk.CTkButton(toolbar_frame, image=delete_dead_links_image,
+                                         compound="left", command=lambda: delete_dead_links(delete_dead_links),
+                                         width=80, height=30, corner_radius=5)
+delete_dead_links_button.grid(row=0, column=10, padx=5, pady=5 sticky="w")
+
+export_hosts_button = ctk.CTkButton(toolbar_frame, image=export_hosts_image,
+                                         compound="left", command=lambda: export_hosts(export_hosts),
+                                         width=80, height=30, corner_radius=5)
+export_hosts_button.grid(row=0, column=11, padx=5, pady=5 sticky="w")
+
 frame = CTk.CTkFrame(root, width=920, height=570, corner_radius=0)
 frame.place(x=620, y=35)
 

@@ -1,10 +1,13 @@
 import tkinter as tk
 import customtkinter as CTk
+import os
+from PIL import Image, ImageDraw
 from CTkMenuBar import *
 from tkinter import PhotoImage
-from pywinstyles
+import pywinstyles
 from tkinter import filedialog, simpledialog
-from PIL import Image, ImageTk
+
+from PIL import Image
 
 root = CTk.CTk()
 pywinstyles.apply_style(root, "acrylic")
@@ -53,38 +56,46 @@ about_img = PhotoImage(file="icons/info.png").subsample(5, 5)
 dropdown6 = CustomDropdownMenu(widget=button_6)
 dropdown6.add_option(option="Info", command=lambda: print("Info"), image=about_img, compound="left")
 
+app.grid_rowconfigure(0, weight=1)
+app.grid_columnconfigure(0, weight=1)
+
+toolbar_frame = ctk.CTKFrame(app, height=50, corner_radius=0)
+toolbar_frame.grid(row=0, column=0, sticky="ew", padx=0, pady=0)
+toolbar_frame.grid_columnconfigure((0, 1, 2, 3), weight=0)
+toolbar_frame.grid_columnconfigure(4, weight=1)
+
 frame = CTk.CTkFrame(root, width=920, height=570, corner_radius=0)
-frame.grid(x=620, y=35)
+frame.place(x=620, y=35)
 
 label1 = CTk.CTkLabel(frame, text="Name:")
-label1.grid(x=10, y=10)
+label1.place(x=10, y=10)
 entry1 = CTk.CTkEntry(frame, width=280)
-entry1.grid(x=10, y=35)
+entry1.place(x=10, y=35)
 
 label2 = CTk.CTkLabel(frame, text="Number of Channel:")
-label2.grid(x=10, y=75)
+label2.place(x=10, y=75)
 entry2 = CTk.CTkEntry(frame, width=280)
-entry2.grid(x=10, y=100)
+entry2.place(x=10, y=100)
 
 label3 = CTk.CTkLabel(frame, text="Category:")
-label3.grid(x=10, y=140)
+label3.place(x=10, y=140)
 entry3 = CTk.CTkEntry(frame, width=280)
-entry3.grid(x=10, y=165)
+entry3.place(x=10, y=165)
 
 label4 = CTk.CTkLabel(frame, text="URL Stream:")
-label4.grid(x=10, y=205)
+label4.place(x=10, y=205)
 entry4 = CTk.CTkEntry(frame, width=280)
-entry4.grid(x=10, y=230)
+entry4.place(x=10, y=230)
 
 label5 = CTk.CTkLabel(frame, text="Logo:")
-label5.grid(x=10, y=270)
+label5.place(x=10, y=270)
 entry5 = CTk.CTkEntry(frame, width=280)
-entry5.grid(x=10, y=295)
+entry5.place(x=10, y=295)
 
 label6 = CTk.CTkLabel(frame, text="EPG ID:")
-label6.grid(x=10, y=335)
+label6.place(x=10, y=335)
 entry6 = CTk.CTkEntry(frame, width=280)
-entry6.grid(x=10, y=360)
+entry6.place(x=10, y=360)
 
 def create_toolbar(self):
         toolbar = CTk.CTkFrame(self)

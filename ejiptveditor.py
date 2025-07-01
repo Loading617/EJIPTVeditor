@@ -7,7 +7,45 @@ from tkinter import PhotoImage
 import pywinstyles
 from tkinter import filedialog, simpledialog
 
-from PIL import Image
+def new_list_action():
+    print("Action: New List (Ctrl+N)")
+
+def open_file_action():
+    print("Action: Open List (Ctrl+O)")
+
+def open_url_action():
+    print("Action: Open URL (Ctrl+U)")
+
+def save_file_action():
+    print("Action: Save As (Ctrl+S)")
+
+def exit_app_action():
+    print("Action: Exiting Application (Ctrl+Q)")
+    root.quit()
+
+def add_channel_action():
+    print("Action: Add Channel (Ctrl+A)")
+
+def delete_channel_action():
+    print("Action: Delete Channel (Delete Key)")
+
+def duplicate_channel_action():
+    print("Action: Duplicate Channel (Ctrl+D)")
+
+def copy_name_to_epg_action():
+    print("Action: Copy Name to EPG (Ctrl+E)")
+
+def clear_duplicates_action():
+    print("Action: Clear Duplicates (Ctrl+Shift+C)")
+
+def verify_links_action():
+    print("Action: Verify Links (Ctrl+V)")
+
+def delete_dead_links_action():
+    print("Action: Delete Dead Links (Ctrl+Shift+D)")
+
+def export_hosts_action():
+    print("Action: Export Hosts (Ctrl+H)")
 
 root = CTk.CTk()
 pywinstyles.apply_style(root, "acrylic")
@@ -27,15 +65,16 @@ open_img = PhotoImage(file="icons/openfile.png").subsample(5, 5)
 url_img = PhotoImage(file="icons/openurl.png").subsample(5, 5)
 save_img = PhotoImage(file="icons/save.png").subsample(5, 5)
 exit_img = PhotoImage(file="icons/exit.png").subsample(5, 5)
+about_img = PhotoImage(file="icons/info.png").subsample(5, 5)
 
 dropdown1 = CustomDropdownMenu(widget=button_1)
-dropdown1.add_option(option="New List", command=lambda: print("New List"), image=new_img, compound="left")
-dropdown1.add_option(option="Open List", command=lambda: print("Open List"), image=open_img, compound="left")
-dropdown1.add_option(option="Open URL", command=lambda: print("Open URL"), image=url_img, compound="left")
+dropdown1.add_option(option="New List", command=new_list_action, image=new_img, compound="left", accelerator="Ctrl+N")
+dropdown1.add_option(option="Open List", command=open_file_action, image=open_img, compound="left", accelerator="Ctrl+O")
+dropdown1.add_option(option="Open URL", command=open_url_action, image=url_img, compound="left", accelerator="Ctrl+U")
 dropdown1.add_separator()
-dropdown1.add_option(option="Save As", command=lambda: print("Save As"), image=save_img, compound="left")
+dropdown1.add_option(option="Save As", command=save_file_action, image=save_img, compound="left", accelerator="Ctrl+S")
 dropdown1.add_separator()
-dropdown1.add_option(option="Exit", command=root.quit, image=exit_img, compound="left")
+dropdown1.add_option(option="Exit", command=exit_app_action, image=exit_img, compound="left", accelerator="Ctrl+Q")
 
 dropdown2 = CustomDropdownMenu(widget=button_2)
 dropdown2.add_option(option="Import Kodi IPTV List")
@@ -51,98 +90,128 @@ dropdown4.add_option(option="Report Duplicates")
 dropdown5 = CustomDropdownMenu(widget=button_5)
 dropdown5.add_option(option="Documentation(How To)")
 
-about_img = PhotoImage(file="icons/info.png").subsample(5, 5)
-
 dropdown6 = CustomDropdownMenu(widget=button_6)
 dropdown6.add_option(option="Info", command=lambda: print("Info"), image=about_img, compound="left")
 
-app.grid_rowconfigure(0, weight=1)
-app.grid_columnconfigure(0, weight=1)
+root.grid_rowconfigure(0, weight=0)
+root.grid_rowconfigure(1, weight=1)
+root.grid_columnconfigure(0, weight=1)
 
-toolbar_frame = ctk.CTKFrame(app, height=50, corner_radius=0)
+toolbar_frame = CTk.CTkFrame(root, height=50, corner_radius=0)
 toolbar_frame.grid(row=0, column=0, sticky="ew", padx=0, pady=0)
-toolbar_frame.grid_columnconfigure((0, 1, 2, 3), weight=0)
-toolbar_frame.grid_columnconfigure(4, weight=1)
+
+toolbar_frame.grid_columnconfigure((0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11), weight=0)
+toolbar_frame.grid_columnconfigure(12, weight=1)
 
 image_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "icons")
-new_iptv_list_image, open_file_image, open_url_image, save_image, add_channel_image, delete_channel_image, duplicate_channel_image, copy_name_to_epg_image, clear_duplicates_image, verify_links_image, delete_dead_links_image, export_hosts_image = None, None, None, None, None, None, None, None, None, None, None, None
+
+new_iptv_list_image = None
+open_file_image = None
+open_url_image = None
+save_image = None
+add_channel_image = None
+delete_channel_image = None
+duplicate_channel_image = None
+copy_name_to_epg_image = None
+clear_duplicates_image = None
+verify_links_image = None
+delete_dead_links_image = None
+export_hosts_image = None
 
 try:
-                new_iptv_list_image = PhotoImage(file=os.path.join(image_path, "newiptvlist.png"))
-                open_file_image = PhotoImage(file=os.path.join(image_path, "openfile.png"))
-                open_url_image = PhotoImage(file=os.path.join(image_path, "openurl.png"))
-                save_image = PhotoImage(file=os.path.join(image_path, "save.png"))
-                add_channel_image = PhotoImage(file=os.path.join(image_path, "addchannel.png"))
-                delete_channel_image = PhotoImage(file=os.path.join(image_path, "deletechannel.png"))
-                duplicate_channel_image = PhotoImage(file=os.path.join(image_path, "duplicatechannel.png"))
-                copy_name_to_epg_image = PhotoImage(file=os.path.join(image_path, "copynametoepg.png"))
-                clear_duplicates_image = PhotoImage(file=os.path.join(image_path, "clearduplicates.png"))
-                verify_links_image = PhotoImage(file=os.path.join(image_path, "verifylinks.png"))
-                delete_dead_links_image = PhotoImage(file=os.path.join(image_path, "deletedeadlinks.png"))
-                export_hosts_image = PhotoImage(file=os.path.join(image_path, "exporthosts.png"))
+    new_iptv_list_image = PhotoImage(file=os.path.join(image_path, "newiptvlist.png")).subsample(3, 3)
+    open_file_image = PhotoImage(file=os.path.join(image_path, "openfile.png")).subsample(3, 3)
+    open_url_image = PhotoImage(file=os.path.join(image_path, "openurl.png")).subsample(3, 3)
+    save_image = PhotoImage(file=os.path.join(image_path, "save.png")).subsample(3, 3)
+    add_channel_image = PhotoImage(file=os.path.join(image_path, "addchannel.png")).subsample(3, 3)
+    delete_channel_image = PhotoImage(file=os.path.join(image_path, "deletechannel.png")).subsample(3, 3)
+    duplicate_channel_image = PhotoImage(file=os.path.join(image_path, "duplicatechannel.png")).subsample(3, 3)
+    copy_name_to_epg_image = PhotoImage(file=os.path.join(image_path, "copynametoepg.png")).subsample(3, 3)
+    clear_duplicates_image = PhotoImage(file=os.path.join(image_path, "clearduplicates.png")).subsample(3, 3)
+    verify_links_image = PhotoImage(file=os.path.join(image_path, "verifylinks.png")).subsample(3, 3)
+    delete_dead_links_image = PhotoImage(file=os.path.join(image_path, "deletedeadlinks.png")).subsample(3, 3)
+    export_hosts_image = PhotoImage(file=os.path.join(image_path, "exporthosts.png")).subsample(3, 3)
+except Exception as e:
+    print(f"Error loading images: {e}")
 
-new_iptv_list_button = ctk.CTkButton(toolbar_frame, image=new_iptv_list_image,
-                                     compound="left", command=lambda: new_iptv_list(new_iptv_list),
-                                     width=80, height=30, corner_radius=5)
+
+new_iptv_list_button = CTk.CTkButton(toolbar_frame, image=new_iptv_list_image,
+                                      compound="left", command=new_list_action,
+                                      width=80, height=30, corner_radius=5, text="New")
 new_iptv_list_button.grid(row=0, column=0, padx=(10, 5), pady=5, sticky="w")
 
-open_file_button = ctk.CTkButton(toolbar_frame, image=open_file_image,
-                                 compound="left", command=lambda: open_file(open_file),
-                                 width=80, height=30, corner_radius=5)
-open_file_button.grid(row=0, column=1, padx=5, pady=5 sticky="w")
+open_file_button = CTk.CTkButton(toolbar_frame, image=open_file_image,
+                                  compound="left", command=open_file_action,
+                                  width=80, height=30, corner_radius=5, text="Open")
+open_file_button.grid(row=0, column=1, padx=5, pady=5, sticky="w")
 
-open_url_button = ctk.CTkButton(toolbar_frame, image=open_url_image,
-                                compound="left", command=lambda: open_url(open_url),
-                                width=80, height=30, corner_radius=5)
-open_url_button.grid(row=0, column=2, padx=5, pady=5 sticky="w")
+open_url_button = CTk.CTkButton(toolbar_frame, image=open_url_image,
+                                 compound="left", command=open_url_action,
+                                 width=80, height=30, corner_radius=5, text="URL")
+open_url_button.grid(row=0, column=2, padx=5, pady=5, sticky="w")
 
-save_button = ctk.CTkButton(toolbar_frame, image=save_img,
-                            compound="left", command=lambda: save_file(save_file),
-                            width=80, height=30, corner_radius=5)
-save_button.grid(row=0, column=3, padx=5, pady=5 sticky="w")
+save_button = CTk.CTkButton(toolbar_frame, image=save_image,
+                            compound="left", command=save_file_action,
+                            width=80, height=30, corner_radius=5, text="Save")
+save_button.grid(row=0, column=3, padx=5, pady=5, sticky="w")
 
-add_channel_button = ctk.CTkButton(toolbar_frame, image=add_channel_image,
-                                   compound="left", command=lambda: add_channel(add_channel),
-                                   width=80, height=30, corner_radius=5)
-add_channel_button.grid(row=0, column=4, padx=5, pady=5 sticky="w")
+add_channel_button = CTk.CTkButton(toolbar_frame, image=add_channel_image,
+                                   compound="left", command=add_channel_action,
+                                   width=80, height=30, corner_radius=5, text="Add")
+add_channel_button.grid(row=0, column=4, padx=5, pady=5, sticky="w")
 
-delete_channel_button = ctk.CTkButton(toolbar_frame, image=delete_channel_image,
-                                      compound="left", command=lambda: delete_channel(delete_channel),
-                                      width=80, height=30, corner_radius=5)
-delete_channel_button.grid(row=0, column=5, padx=5, pady=5 sticky="w")
+delete_channel_button = CTk.CTkButton(toolbar_frame, image=delete_channel_image,
+                                      compound="left", command=delete_channel_action,
+                                      width=80, height=30, corner_radius=5, text="Delete")
+delete_channel_button.grid(row=0, column=5, padx=5, pady=5, sticky="w")
 
-duplicate_channel_button = ctk.CTkButton(toolbar_frame, image=duplicate_channel_image,
-                                         compound="left", command=lambda: duplicate_channel(duplicate_channel),
-                                         width=80, height=30, corner_radius=5)
-duplicate_channel_button.grid(row=0, column=6, padx=5, pady=5 sticky="w")
+duplicate_channel_button = CTk.CTkButton(toolbar_frame, image=duplicate_channel_image,
+                                         compound="left", command=duplicate_channel_action,
+                                         width=80, height=30, corner_radius=5, text="Duplicate")
+duplicate_channel_button.grid(row=0, column=6, padx=5, pady=5, sticky="w")
 
-copy_name_to_epg_button = ctk.CTkButton(toolbar_frame, image=copy_name_to_epg_image,
-                                         compound="left", command=lambda: copy_name_to_epg(copy_name_to_epg),
-                                         width=80, height=30, corner_radius=5)
-copy_name_to_epg_button.grid(row=0, column=7, padx=5, pady=5 sticky="w")
+copy_name_to_epg_button = CTk.CTkButton(toolbar_frame, image=copy_name_to_epg_image,
+                                         compound="left", command=copy_name_to_epg_action,
+                                         width=80, height=30, corner_radius=5, text="Copy EPG")
+copy_name_to_epg_button.grid(row=0, column=7, padx=5, pady=5, sticky="w")
 
-clear_duplicates_button = ctk.CTkButton(toolbar_frame, image=clear_duplicates_image,
-                                         compound="left", command=lambda: clear_duplicates(clear_duplicates),
-                                         width=80, height=30, corner_radius=5)
-clear_duplicates_button.grid(row=0, column=8, padx=5, pady=5 sticky="w")
+clear_duplicates_button = CTk.CTkButton(toolbar_frame, image=clear_duplicates_image,
+                                         compound="left", command=clear_duplicates_action,
+                                         width=80, height=30, corner_radius=5, text="Clear Dups")
+clear_duplicates_button.grid(row=0, column=8, padx=5, pady=5, sticky="w")
 
-verify_links_button = ctk.CTkButton(toolbar_frame, image=verify_links_image,
-                                         compound="left", command=lambda: verify_links(verify_links),
-                                         width=80, height=30, corner_radius=5)
-verify_links_button.grid(row=0, column=9, padx=5, pady=5 sticky="w")
+verify_links_button = CTk.CTkButton(toolbar_frame, image=verify_links_image,
+                                         compound="left", command=verify_links_action,
+                                         width=80, height=30, corner_radius=5, text="Verify Links")
+verify_links_button.grid(row=0, column=9, padx=5, pady=5, sticky="w")
 
-delete_dead_links_button = ctk.CTkButton(toolbar_frame, image=delete_dead_links_image,
-                                         compound="left", command=lambda: delete_dead_links(delete_dead_links),
-                                         width=80, height=30, corner_radius=5)
-delete_dead_links_button.grid(row=0, column=10, padx=5, pady=5 sticky="w")
+delete_dead_links_button = CTk.CTkButton(toolbar_frame, image=delete_dead_links_image,
+                                         compound="left", command=delete_dead_links_action,
+                                         width=80, height=30, corner_radius=5, text="Del Dead")
+delete_dead_links_button.grid(row=0, column=10, padx=5, pady=5, sticky="w")
 
-export_hosts_button = ctk.CTkButton(toolbar_frame, image=export_hosts_image,
-                                         compound="left", command=lambda: export_hosts(export_hosts),
-                                         width=80, height=30, corner_radius=5)
-export_hosts_button.grid(row=0, column=11, padx=5, pady=5 sticky="w")
+export_hosts_button = CTk.CTkButton(toolbar_frame, image=export_hosts_image,
+                                         compound="left", command=export_hosts_action,
+                                         width=80, height=30, corner_radius=5, text="Export Hosts")
+export_hosts_button.grid(row=0, column=11, padx=5, pady=5, sticky="w")
+
+root.bind("<Control-n>", lambda event: new_list_action())
+root.bind("<Control-o>", lambda event: open_file_action())
+root.bind("<Control-u>", lambda event: open_url_action())
+root.bind("<Control-s>", lambda event: save_file_action())
+root.bind("<Control-q>", lambda event: exit_app_action())
+
+root.bind("<Control-a>", lambda event: add_channel_action())
+root.bind("<Delete>", lambda event: delete_channel_action())
+root.bind("<Control-d>", lambda event: duplicate_channel_action())
+root.bind("<Control-e>", lambda event: copy_name_to_epg_action())
+root.bind("<Control-Shift-c>", lambda event: clear_duplicates_action())
+root.bind("<Control-v>", lambda event: verify_links_action())
+root.bind("<Control-Shift-d>", lambda event: delete_dead_links_action())
+root.bind("<Control-h>", lambda event: export_hosts_action())
 
 frame = CTk.CTkFrame(root, width=920, height=570, corner_radius=0)
-frame.place(x=620, y=35)
+frame.grid(row=1, column=0, sticky="nsew", padx=0, pady=0)
 
 label1 = CTk.CTkLabel(frame, text="Name:")
 label1.place(x=10, y=10)
@@ -174,85 +243,5 @@ label6.place(x=10, y=335)
 entry6 = CTk.CTkEntry(frame, width=280)
 entry6.place(x=10, y=360)
 
-def create_toolbar(self):
-        toolbar = CTk.CTkFrame(self)
-        toolbar.pack(pady=10, padx=10, fill="x")
-
-        buttons = [
-            ("New IPTV List", self.new_iptv_list, "Ctrl-n"),
-            ("Open File", self.open_file, "Ctrl-o"),
-            ("Open URL", self.open_url, "Ctrl-u"),
-            ("Save", self.save, "Ctrl-s"),
-            ("Add Channel", self.add_channel, "Ctrl-a"),
-            ("Delete Channel", self.delete_channel, "Delete"),
-            ("Duplicate Channel", self.duplicate_channel, "Ctrl-d"),
-            ("Copy Name to EPG", self.copy_name_to_epg, "Ctrl-e"),
-            ("Clear Duplicate Hosts", self.clear_duplicates, "Ctrl-h"),
-            ("Verify Links", self.verify_links, "Ctrl-v"),
-            ("Delete Dead Links", self.delete_dead_links, "Ctrl-x"),
-            ("Export Hosts", self.export_hosts, "Ctrl-p"),
-        ]
-
-        for text, command, _ in buttons:
-            btn = CTk.CTkButton(toolbar, text=text, command=command)
-            btn.pack(side="left", padx=5)
-
-def bind_keys(self):
-        bindings = {
-            "<Control-n>": self.new_iptv_list,
-            "<Control-o>": self.open_file,
-            "<Control-u>": self.open_url,
-            "<Control-s>": self.save,
-            "<Control-a>": self.add_channel,
-            "<Delete>": self.delete_channel,
-            "<Control-d>": self.duplicate_channel,
-            "<Control-e>": self.copy_name_to_epg,
-            "<Control-h>": self.clear_duplicates,
-            "<Control-v>": self.verify_links,
-            "<Control-x>": self.delete_dead_links,
-            "<Control-p>": self.export_hosts,
-        }
-
-        for key, func in bindings.items():
-            self.bind(key, lambda event, f=func: f())
-
-def new_iptv_list(self):
-        print("New IPTV list created")
-
-def open_file(self):
-        file_path = filedialog.askopenfilename(title="Open IPTV File")
-        print(f"Opened file: {file_path}")
-
-def open_url(self):
-        url = simpledialog.askstring("Open URL", "Enter IPTV URL:")
-        if url:
-            print(f"Opened URL: {url}")
-
-def save(self):
-        print("Saved IPTV list")
-
-def add_channel(self):
-        print("Channel added")
-
-def delete_channel(self):
-        print("Channel deleted")
-
-def duplicate_channel(self):
-        print("Channel duplicated")
-
-def copy_name_to_epg(self):
-        print("Copied name to EPG")
-
-def clear_duplicates(self):
-        print("Cleared duplicate hosts")
-
-def verify_links(self):
-        print("Verified links")
-
-def delete_dead_links(self):
-        print("Deleted dead links")
-
-def export_hosts(self):
-        print("Exported hosts for validation")
 
 root.mainloop()

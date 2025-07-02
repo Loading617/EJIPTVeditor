@@ -211,7 +211,7 @@ root.bind("<Control-Shift-d>", lambda event: delete_dead_links_action())
 root.bind("<Control-h>", lambda event: export_hosts_action())
 
 frame = CTk.CTkFrame(root, width=920, height=570, corner_radius=0)
-frame.grid(row=1, column=0, sticky="nsew", padx=0, pady=0)
+frame.place(x=620, y=35)
 
 label1 = CTk.CTkLabel(frame, text="Name:")
 label1.place(x=10, y=10)

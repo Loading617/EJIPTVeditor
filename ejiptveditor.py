@@ -137,62 +137,62 @@ except Exception as e:
 
 new_iptv_list_button = CTk.CTkButton(toolbar_frame, image=new_iptv_list_image,
                                       compound="left", command=new_list_action,
-                                      width=80, height=30, corner_radius=5, text="New")
+                                      width=80, height=30, corner_radius=5, text="")
 new_iptv_list_button.grid(row=0, column=0, padx=(10, 5), pady=5, sticky="w")
 
 open_file_button = CTk.CTkButton(toolbar_frame, image=open_file_image,
                                   compound="left", command=open_file_action,
-                                  width=80, height=30, corner_radius=5, text="Open")
+                                  width=80, height=30, corner_radius=5, text="")
 open_file_button.grid(row=0, column=1, padx=5, pady=5, sticky="w")
 
 open_url_button = CTk.CTkButton(toolbar_frame, image=open_url_image,
                                  compound="left", command=open_url_action,
-                                 width=80, height=30, corner_radius=5, text="URL")
+                                 width=80, height=30, corner_radius=5, text="")
 open_url_button.grid(row=0, column=2, padx=5, pady=5, sticky="w")
 
 save_button = CTk.CTkButton(toolbar_frame, image=save_image,
                             compound="left", command=save_file_action,
-                            width=80, height=30, corner_radius=5, text="Save")
+                            width=80, height=30, corner_radius=5, text="")
 save_button.grid(row=0, column=3, padx=5, pady=5, sticky="w")
 
 add_channel_button = CTk.CTkButton(toolbar_frame, image=add_channel_image,
                                    compound="left", command=add_channel_action,
-                                   width=80, height=30, corner_radius=5, text="Add")
+                                   width=80, height=30, corner_radius=5, text="")
 add_channel_button.grid(row=0, column=4, padx=5, pady=5, sticky="w")
 
 delete_channel_button = CTk.CTkButton(toolbar_frame, image=delete_channel_image,
                                       compound="left", command=delete_channel_action,
-                                      width=80, height=30, corner_radius=5, text="Delete")
+                                      width=80, height=30, corner_radius=5, text="")
 delete_channel_button.grid(row=0, column=5, padx=5, pady=5, sticky="w")
 
 duplicate_channel_button = CTk.CTkButton(toolbar_frame, image=duplicate_channel_image,
                                          compound="left", command=duplicate_channel_action,
-                                         width=80, height=30, corner_radius=5, text="Duplicate")
+                                         width=80, height=30, corner_radius=5, text="")
 duplicate_channel_button.grid(row=0, column=6, padx=5, pady=5, sticky="w")
 
 copy_name_to_epg_button = CTk.CTkButton(toolbar_frame, image=copy_name_to_epg_image,
                                          compound="left", command=copy_name_to_epg_action,
-                                         width=80, height=30, corner_radius=5, text="Copy EPG")
+                                         width=80, height=30, corner_radius=5, text="")
 copy_name_to_epg_button.grid(row=0, column=7, padx=5, pady=5, sticky="w")
 
 clear_duplicates_button = CTk.CTkButton(toolbar_frame, image=clear_duplicates_image,
                                          compound="left", command=clear_duplicates_action,
-                                         width=80, height=30, corner_radius=5, text="Clear Dups")
+                                         width=80, height=30, corner_radius=5, text="")
 clear_duplicates_button.grid(row=0, column=8, padx=5, pady=5, sticky="w")
 
 verify_links_button = CTk.CTkButton(toolbar_frame, image=verify_links_image,
                                          compound="left", command=verify_links_action,
-                                         width=80, height=30, corner_radius=5, text="Verify Links")
+                                         width=80, height=30, corner_radius=5, text="")
 verify_links_button.grid(row=0, column=9, padx=5, pady=5, sticky="w")
 
 delete_dead_links_button = CTk.CTkButton(toolbar_frame, image=delete_dead_links_image,
                                          compound="left", command=delete_dead_links_action,
-                                         width=80, height=30, corner_radius=5, text="Del Dead")
+                                         width=80, height=30, corner_radius=5, text="")
 delete_dead_links_button.grid(row=0, column=10, padx=5, pady=5, sticky="w")
 
 export_hosts_button = CTk.CTkButton(toolbar_frame, image=export_hosts_image,
                                          compound="left", command=export_hosts_action,
-                                         width=80, height=30, corner_radius=5, text="Export Hosts")
+                                         width=80, height=30, corner_radius=5, text="")
 export_hosts_button.grid(row=0, column=11, padx=5, pady=5, sticky="w")
 
 root.bind("<Control-n>", lambda event: new_list_action())

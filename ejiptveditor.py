@@ -6,6 +6,7 @@ from CTkMenuBar import *
 from tkinter import PhotoImage
 import pywinstyles
 from tkinter import filedialog, simpledialog
+from tkinter import ttk
 
 def new_list_action():
     print("Action: New List (Ctrl+N)")
@@ -25,12 +26,28 @@ def exit_app_action():
 
 def add_channel_action():
     print("Action: Add Channel (Ctrl+A)")
+    name = entry1.get()
+    channel_id = entry2.get()
+    epg = entry6.get()
+    category = entry3.get()
+    ip = entry4.get()
+    image = entry5.get()
+
+    tree.insert("", "end", values=(name, channel_id, epg, category, ip, image))
+
 
 def delete_channel_action():
     print("Action: Delete Channel (Delete Key)")
+    selected_items = tree.selection()
+    for item in selected_items:
+        tree.delete(item)
 
 def duplicate_channel_action():
     print("Action: Duplicate Channel (Ctrl+D)")
+    selected_items = tree.selection()
+    for item in selected_items:
+        values = tree.item(item, 'values')
+        tree.insert("", "end", values=values)
 
 def copy_name_to_epg_action():
     print("Action: Copy Name to EPG (Ctrl+E)")
@@ -49,7 +66,7 @@ def export_hosts_action():
 
 root = CTk.CTk()
 pywinstyles.apply_style(root, "acrylic")
-root.geometry("920x570")
+root.geometry("1200x570")
 root.title("EJ IPTV editor")
 
 menu = CTkTitleMenu(root)
@@ -68,13 +85,13 @@ exit_img = PhotoImage(file="icons/exit.png").subsample(5, 5)
 about_img = PhotoImage(file="icons/info.png").subsample(5, 5)
 
 dropdown1 = CustomDropdownMenu(widget=button_1)
-dropdown1.add_option(option="New List", command=lambda: print("New List"), image=new_img, compound="left")
-dropdown1.add_option(option="Open List", command=lambda: print("Open List"), image=open_img, compound="left")
-dropdown1.add_option(option="Open URL", command=lambda: print("Open URL"), image=url_img, compound="left")
+dropdown1.add_option(option="New List", command=new_list_action, image=new_img, compound="left")
+dropdown1.add_option(option="Open List", command=open_file_action, image=open_img, compound="left")
+dropdown1.add_option(option="Open URL", command=open_url_action, image=url_img, compound="left")
 dropdown1.add_separator()
-dropdown1.add_option(option="Save As", command=lambda: print("Save As"), image=save_img, compound="left")
+dropdown1.add_option(option="Save As", command=save_file_action, image=save_img, compound="left")
 dropdown1.add_separator()
-dropdown1.add_option(option="Exit", command=root.quit, image=exit_img, compound="left")
+dropdown1.add_option(option="Exit", command=exit_app_action, image=exit_img, compound="left")
 
 dropdown2 = CustomDropdownMenu(widget=button_2)
 dropdown2.add_option(option="Import Kodi IPTV List")
@@ -96,9 +113,10 @@ dropdown6.add_option(option="Info", command=lambda: print("Info"), image=about_i
 root.grid_rowconfigure(0, weight=0)
 root.grid_rowconfigure(1, weight=1)
 root.grid_columnconfigure(0, weight=1)
+root.grid_columnconfigure(1, weight=0)
 
 toolbar_frame = CTk.CTkFrame(root, height=50, corner_radius=0)
-toolbar_frame.grid(row=0, column=0, sticky="ew", padx=0, pady=0)
+toolbar_frame.grid(row=0, column=0, columnspan=2, sticky="ew", padx=0, pady=0)
 
 toolbar_frame.grid_columnconfigure((0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11), weight=0)
 toolbar_frame.grid_columnconfigure(12, weight=1)
@@ -156,18 +174,18 @@ save_button = CTk.CTkButton(toolbar_frame, image=save_image,
 save_button.grid(row=0, column=3, padx=5, pady=5, sticky="w")
 
 add_channel_button = CTk.CTkButton(toolbar_frame, image=add_channel_image,
-                                   compound="left", command=add_channel_action,
-                                   width=80, height=30, corner_radius=5, text="")
+                                    compound="left", command=add_channel_action,
+                                    width=80, height=30, corner_radius=5, text="")
 add_channel_button.grid(row=0, column=4, padx=5, pady=5, sticky="w")
 
 delete_channel_button = CTk.CTkButton(toolbar_frame, image=delete_channel_image,
-                                      compound="left", command=delete_channel_action,
-                                      width=80, height=30, corner_radius=5, text="")
+                                       compound="left", command=delete_channel_action,
+                                       width=80, height=30, corner_radius=5, text="")
 delete_channel_button.grid(row=0, column=5, padx=5, pady=5, sticky="w")
 
 duplicate_channel_button = CTk.CTkButton(toolbar_frame, image=duplicate_channel_image,
-                                         compound="left", command=duplicate_channel_action,
-                                         width=80, height=30, corner_radius=5, text="")
+                                          compound="left", command=duplicate_channel_action,
+                                          width=80, height=30, corner_radius=5, text="")
 duplicate_channel_button.grid(row=0, column=6, padx=5, pady=5, sticky="w")
 
 copy_name_to_epg_button = CTk.CTkButton(toolbar_frame, image=copy_name_to_epg_image,
@@ -210,8 +228,40 @@ root.bind("<Control-v>", lambda event: verify_links_action())
 root.bind("<Control-Shift-d>", lambda event: delete_dead_links_action())
 root.bind("<Control-h>", lambda event: export_hosts_action())
 
-frame = CTk.CTkFrame(root, width=920, height=570, corner_radius=0)
-frame.place(x=620, y=52)
+left_frame = CTk.CTkFrame(root, corner_radius=0)
+left_frame.grid(row=1, column=0, sticky="nsew", padx=10, pady=10)
+left_frame.grid_rowconfigure(0, weight=1)
+left_frame.grid_columnconfigure(0, weight=1)
+
+tree = ttk.Treeview(left_frame)
+
+tree["columns"] = ("Name", "Channel ID", "EPG", "Category", "IP", "Image")
+tree.column("#0", width=0, stretch=tk.NO)
+tree.column("Name", anchor=tk.W, width=120)
+tree.column("Channel ID", anchor=tk.CENTER, width=80)
+tree.column("EPG", anchor=tk.W, width=100)
+tree.column("Category", anchor=tk.W, width=100)
+tree.column("IP", anchor=tk.W, width=150)
+tree.column("Image", anchor=tk.W, width=100)
+
+tree.heading("#0", text="", anchor=tk.W)
+tree.heading("Name", text="Name", anchor=tk.W)
+tree.heading("Channel ID", text="Channel ID", anchor=tk.CENTER)
+tree.heading("EPG", text="EPG", anchor=tk.W)
+tree.heading("Category", text="Category", anchor=tk.W)
+tree.heading("IP", text="IP", anchor=tk.W)
+tree.heading("Image", text="Image", anchor=tk.W)
+
+vsb = CTk.CTkScrollbar(left_frame, orientation="vertical", command=tree.yview)
+hsb = CTk.CTkScrollbar(left_frame, orientation="horizontal", command=tree.xview)
+tree.configure(yscrollcommand=vsb.set, xscrollcommand=hsb.set)
+
+tree.grid(row=0, column=0, sticky="nsew")
+vsb.grid(row=0, column=1, sticky="ns")
+hsb.grid(row=1, column=0, sticky="ew")
+
+frame = CTk.CTkFrame(root, width=300, corner_radius=0)
+frame.grid(row=1, column=1, sticky="nswe", padx=10, pady=10)
 
 label1 = CTk.CTkLabel(frame, text="Name:")
 label1.place(x=10, y=10)
@@ -228,12 +278,12 @@ label3.place(x=10, y=140)
 entry3 = CTk.CTkEntry(frame, width=280)
 entry3.place(x=10, y=165)
 
-label4 = CTk.CTkLabel(frame, text="URL Stream:")
+label4 = CTk.CTkLabel(frame, text="URL Stream (IP):")
 label4.place(x=10, y=205)
 entry4 = CTk.CTkEntry(frame, width=280)
 entry4.place(x=10, y=230)
 
-label5 = CTk.CTkLabel(frame, text="Logo:")
+label5 = CTk.CTkLabel(frame, text="Logo (Image Path):")
 label5.place(x=10, y=270)
 entry5 = CTk.CTkEntry(frame, width=280)
 entry5.place(x=10, y=295)

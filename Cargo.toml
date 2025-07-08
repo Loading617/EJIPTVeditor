@@ -1,0 +1,8 @@
+[package]
+name = "ej_iptv_editor"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+iced = { version = "0.12", features = ["tokio", "filesystem"] }
+tokio = { version = "1", features = ["full"] }

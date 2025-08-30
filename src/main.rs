@@ -1,4 +1,4 @@
-use iced::widget::{Button, Column, Row, Text, text_input, Scrollable};
+use iced::widget::{Button, Column, Row, Text, TextInput, Scrollable};
 use iced::{Alignment, Command, Element, Sandbox, Settings};
 
 #[derive(Debug, Clone)]

@@ -1,5 +1,8 @@
-use iced::widget::{Button, Column, Row, Text, TextInput, Scrollable};
-use iced::{Alignment, Command, Element, Sandbox, Settings};
+use iced::{
+    Element, Length,
+    alignment::Vertical,
+    widget::{button, column, container, row, scrollable, text, text_input},
+};
 
 #[derive(Debug, Clone)]
 enum Message {
@@ -15,29 +18,27 @@ struct Channel {
     url: String,
 }
 
-struct IPTVEditor {
+struct EJIPTVEditor {
     channels: Vec<Channel>,
 }
 
-impl Sandbox for EJIPTVEditor {
-    type Message = Message;
-
-    fn new() -> Self {
+impl Default for EJIPTVEditor {
+    fn default() -> Self {
         Self {
-            channels: vec![
-                Channel {
-                    name: "Example Channel".to_string(),
-                    url: "http://example.com/stream".to_string(),
-                },
-            ],
+            channels: vec![Channel {
+                name: "Example Channel".to_string(),
+                url: "http://example.com/stream".to_string(),
+            }],
         }
     }
+}
 
+impl EJIPTVEditor {
     fn title(&self) -> String {
         "EJ IPTV editor".to_string()
     }
 
-    fn update(&mut self, message: Self::Message) {
+    fn update(&mut self, message: Message) {
         match message {
             Message::LoadPressed => {
                 // TODO: load M3U file
@@ -58,32 +59,35 @@ impl Sandbox for EJIPTVEditor {
         }
     }
 
-    fn view(&self) -> Element<Self::Message> {
+    fn view(&self) -> Element<Message> {
         let mut content = column![text("EJ IPTV Playlist Editor").size(28)].spacing(20);
 
-        let channel_list = self.channels.iter().enumerate().fold(
-            column![].spacing(10),
-            |col, (i, ch)| {
-                col.push(
-                    row![
-                        text_input("Name", &ch.name, move |v| {
-                            Message::ChannelNameChanged(i, v)
-                        })
-                        .width(iced::Length::FillPortion(2)),
-                        text_input("URL", &ch.url, move |v| {
-                            Message::ChannelUrlChanged(i, v)
-                        })
-                        .width(iced::Length::FillPortion(3)),
-                    ]
-                    .spacing(10),
-                )
-            },
-        );
+        let channel_list =
+            self.channels
+                .iter()
+                .enumerate()
+                .fold(column![].spacing(10), |col, (i, ch)| {
+                    col.push(
+                        row![
+                            text_input("Name", &ch.name)
+                                .on_input(move |v| { Message::ChannelNameChanged(i, v) })
+                                .width(iced::Length::FillPortion(2)),
+                            text_input("URL", &ch.url)
+                                .on_input(move |v| { Message::ChannelUrlChanged(i, v) })
+                                .width(iced::Length::FillPortion(3)),
+                        ]
+                        .spacing(10),
+                    )
+                });
 
         content = content.push(
-            scrollable(channel_list)
-                .height(iced::Length::FillPortion(1))
-                .padding(10),
+            container(
+                scrollable(channel_list)
+                    .height(Length::Fill)
+                    .width(Length::Fill),
+            )
+            .height(iced::Length::FillPortion(1))
+            .padding(10),
         );
 
         content = content.push(
@@ -92,7 +96,7 @@ impl Sandbox for EJIPTVEditor {
                 button("Save Playlist").on_press(Message::SavePressed),
             ]
             .spacing(20)
-            .align_items(Alignment::Center),
+            .align_y(Vertical::Center),
         );
 
         content.into()
@@ -100,5 +104,7 @@ impl Sandbox for EJIPTVEditor {
 }
 
 fn main() -> iced::Result {
-    EJIPTVEditor::run(Settings::default())
+    iced::application(EJIPTVEditor::title, EJIPTVEditor::update, EJIPTVEditor::view)
+        .antialiasing(true)
+        .run()
 }

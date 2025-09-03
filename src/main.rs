@@ -59,50 +59,6 @@ impl EJIPTVEditor {
         }
     }
 
-    fn view(&self) -> Element<Message> {
-        let mut content = column![text("EJ IPTV Playlist Editor").size(28)].spacing(20);
-
-        let channel_list =
-            self.channels
-                .iter()
-                .enumerate()
-                .fold(column![].spacing(10), |col, (i, ch)| {
-                    col.push(
-                        row![
-                            text_input("Name", &ch.name)
-                                .on_input(move |v| { Message::ChannelNameChanged(i, v) })
-                                .width(iced::Length::FillPortion(2)),
-                            text_input("URL", &ch.url)
-                                .on_input(move |v| { Message::ChannelUrlChanged(i, v) })
-                                .width(iced::Length::FillPortion(3)),
-                        ]
-                        .spacing(10),
-                    )
-                });
-
-        content = content.push(
-            container(
-                scrollable(channel_list)
-                    .height(Length::Fill)
-                    .width(Length::Fill),
-            )
-            .height(iced::Length::FillPortion(1))
-            .padding(10),
-        );
-
-        content = content.push(
-            row![
-                button("Load Playlist").on_press(Message::LoadPressed),
-                button("Save Playlist").on_press(Message::SavePressed),
-            ]
-            .spacing(20)
-            .align_y(Vertical::Center),
-        );
-
-        content.into()
-    }
-}
-
 fn main() -> iced::Result {
     iced::application(EJIPTVEditor::title, EJIPTVEditor::update, EJIPTVEditor::view)
         .antialiasing(true)
